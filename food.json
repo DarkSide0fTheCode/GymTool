@@ -31,5 +31,36 @@
     "quest protein bar": { "q": "1/1.5", "u": "g" },
     "salmone selvaggio (dal 25%)": { "q": 125, "u": "g" },
     "amino map/essenziali o simili": { "q": "7/10", "u": "g" }
+  },
+  "C": {
+    "riso" : { "q": "60", "u": "g" },
+    "pasta" : { "q": "60", "u": "g" },
+    "gallette" : { "q": "60", "u": "g" },
+    "polenta secca" : { "q": "60", "u": "g" },
+    "crackers magretti" : { "q": "60", "u": "g" },
+    "fette biscottate (0 zuccheri)" : { "q": "60", "u": "g" },
+    "cornflakes mais (0 zuccheri)" : { "q": "60", "u": "g" },
+    "pop corn (no olio)" : { "q": "60", "u": "g" },
+    "fiocchi d'avena" : { "q": "90", "u": "g" },
+    "pane" : { "q": "90", "u": "g" },
+    "fette segale" : { "q": "90", "u": "g" },
+    "fette wasa" : { "q": "90", "u": "g" },
+    "focaccia sale e rosmarino" : { "q": "90", "u": "g" },
+    "pasta all'uovo" : { "q": "90", "u": "g" },
+    "patate dolci" : { "q": "200", "u": "g" },
+    "patate" : { "q": "250", "u": "g" },
+    "gnocchi patate" : { "q": "140", "u": "g" },
+    "pane duro 40% carboidrati" : { "q": "140", "u": "g" },
+    "frutta" : { "q": "500", "u": "g" }
+  },
+  "G": {
+    "olio d'oliva/mais/lino": { "q": "10", "u": "g" },
+    "nocciole" : { "q": "20", "u": "g" },
+    "pinoli" : { "q": "20", "u": "g" },
+    "mandorle" : { "q": "20", "u": "g" },
+    "noci brasiliane" : { "q": "20", "u": "g" },
+    "anacardi" : { "q": "20", "u": "g" },
+    "noci macadamia" : { "q": "20", "u": "g" },
+    "avocado" : { "q": "80", "u": "g" }
   }
 }

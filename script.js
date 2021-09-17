@@ -27,6 +27,7 @@ let selectedDay = "A";
 let userCode = "";
 let userId;
 let mealList = [];
+let stringSuggestion = [];
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -196,8 +197,16 @@ resetInputFields = function () {
 }
 
 buildSuggestion = function(ar) {
-  console.log(ar[0]);
-  console.log(ar[1][0]["q"]);
+  let tempString = "";
+
+  ar.forEach((item, index) => {
+    console.log('Index: ' + index + ' Item: ' + item);
+    tempString = item[0] + " - " + item[1][0]["q"] + item[1][0]["u"];
+    console.log(tempString);
+    stringSuggestion.push(tempString);
+  });
+
+  return stringSuggestion;
 }
 
 generateMeal = function () {
@@ -209,21 +218,28 @@ generateMeal = function () {
   mealSuggestDiv.setAttribute('id', 'mealSuggest');
   document.body.appendChild(mealSuggestDiv);
   let mealDiv = document.getElementById("mealSuggest");
-  console.log(mealDiv);
   let ul = document.createElement('ul');
   ul.setAttribute('class', 'foodList');
-  let randomizedProtein = randomizeMeal(foodData["P"]);
-  let randomizedProtein2 = randomizeMeal(foodData["P"]);
+  let randomizedProteins = randomizeMeal(foodData["P"]);
+  let randomizedCarbs = randomizeMeal(foodData["C"]);
+  let randomizedFat = randomizeMeal(foodData["G"]);
 
-  mealList.push(randomizedProtein);
+  // console.log(randomizedProteins);
+  // console.log(randomizedCarbs);
+  // console.log(randomizedFat);
+  
+  mealList.push(randomizedProteins);
+  mealList.push(randomizedCarbs);
+  mealList.push(randomizedFat);
 
   console.log(mealList);
 
-  let suggString = buildSuggestion(randomizedProtein);
+  let suggString = buildSuggestion(mealList);
   
-  for (i = 0; i <= arr.length - 1; i++) {
+  for (i = 0; i <= suggString.length - 1; i++) {
+    console.log(suggString[i]);
     var li = document.createElement('li');     // create li element.
-    li.innerHTML = arr[i];      // assigning text to li using array value.
+    li.innerHTML = suggString[i];      // assigning text to li using array value.
     li.setAttribute('style', 'foodlist');    // remove the bullets.
     
     ul.appendChild(li);     // append li to ul.
