@@ -1,9 +1,9 @@
 {
-  "12344": {
-    "firstName": "Gianmarco",
-    "lastName": "Aquilano",
-    "phoneNumber": "3282286148",
-    "emailAddress": "gianmarco.aquilano@gmail.com",
+  "12345": {
+    "firstName": "DarkSide",
+    "lastName": "Dev",
+    "phoneNumber": "1234567890",
+    "emailAddress": "X@gmail.com",
     "owner": false,
     "macroNutrients": {
       "A": {
@@ -21,56 +21,6 @@
         "4": { "p": 30, "g": 5, "c": 50 },
         "5": { "p": 30, "g": 5, "c": 50 },
         "6": { "p": 30, "g": 5, "c": 0 }
-      }
-    }
-  },
-  "12345": {
-    "firstName": "Alessio",
-    "lastName": "Aquilano",
-    "phoneNumber": "349057329",
-    "emailAddress": "alessio.aquilano@gmail.com",
-    "owner": false,
-    "macroNutrients": {
-      "A": {
-        "1": { "p": 30, "g": 5, "c": 25 },
-        "2": { "p": 15, "g": 5, "c": 10 },
-        "3": { "p": 30, "g": 5, "c": 25 },
-        "4": { "p": 15, "g": 5, "c": 10 },
-        "5": { "p": 30, "g": 5, "c": 25 },
-        "6": { "p": 30, "g": 5, "c": 10 }
-      },
-      "B": {
-        "1": { "p": 30, "g": 10, "c": 25 },
-        "2": { "p": 15, "g": 5, "c": 10 },
-        "3": { "p": 30, "g": 5, "c": 25 },
-        "4": { "p": 15, "g": 5, "c": 10 },
-        "5": { "p": 30, "g": 5, "c": 25 },
-        "6": { "p": 30, "g": 5, "c": 10 }
-      }
-    }
-  },
-  "11111": {
-    "firstName": "Luigi",
-    "lastName": "Di Dionisio",
-    "phoneNumber": "?",
-    "emailAddress": "?",
-    "owner": true,
-    "macroNutrients": {
-      "A": {
-        "1": { "p": 30, "g": 5, "c": 25 },
-        "2": { "p": 15, "g": 5, "c": 10 },
-        "3": { "p": 30, "g": 5, "c": 25 },
-        "4": { "p": 15, "g": 5, "c": 10 },
-        "5": { "p": 30, "g": 5, "c": 25 },
-        "6": { "p": 30, "g": 5, "c": 10 }
-      },
-      "B": {
-        "1": { "p": 30, "g": 10, "c": 25 },
-        "2": { "p": 15, "g": 5, "c": 10 },
-        "3": { "p": 30, "g": 5, "c": 25 },
-        "4": { "p": 15, "g": 5, "c": 10 },
-        "5": { "p": 30, "g": 5, "c": 25 },
-        "6": { "p": 30, "g": 5, "c": 10 }
       }
     }
   }
