@@ -1,0 +1,25 @@
+{
+    "breast_turkey": {
+        "display": "Petto di tacchino",
+        "calories": 20,
+        "protein": 30.00,
+        "carbohydrates": {
+            "total": 0,
+            "sugars": 0
+        },
+        "fat": 2.1,
+        "tags": ["main"]
+    },
+    "chicken_breast": {
+        "display": "Petto di pollo",
+        "calories": 20, 
+        "protein": 21.23,
+        "carbohydrates": {
+            "total": 0,
+            "sugars": 0
+        },
+        "fat": 2.59,
+        "tags": ["main"]
+    },
+       
+}

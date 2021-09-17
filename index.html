@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Luis's Gym Diet Tool</title>
+    <link
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="logo" />
+      <p id="userName">Utente: Sconosciuto</p>
+    </div>
+    
+    <h1 class="bodyH1">LUIS'S GYM DIET TOOL</h1>
+    <div class="codeInput" id="codeInput">
+      <div class="main">
+        <p id="inputLabel" class="label">Inserisci il tuo codice utente</p>
+        <!-- SMS Code input -->
+          <div class="fieldset">
+            <label class="box"><input id="box1" class="field" type="text" placeholder="•" /></label>
+            <label class="box"><input id="box2" class="field" type="text" placeholder="•" /></label>
+            <label class="box"><input id="box3" class="field" type="text" placeholder="•" /></label>
+            <label class="box"><input id="box4" class="field" type="text" placeholder="•" /></label>
+            <label class="box"><input id="box5" class="field" type="text" placeholder="•" /></label>
+        </div>
+        <!-- End SMS Code input -->
+      </div>
+      <div class="animation-controls">
+        <div class="animation-controls__content">
+          <button class="btn submit-btn" type="button">Conferma</button>
+          <!-- <button class="btn failure-btn" type="button">Failure</button> -->
+          <!-- <button class="btn reset-btn" type="button">Reset</button> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="mainBody" id="mainBody">
+      <!-- <h2>Luis's Gym Diet Tool</h2> -->
+
+      <span class="color-picker"></span>
+
+      <br /><br />
+
+      <span class="custom-dropdown">
+        <select id="daySelector" onchange="switchDay()">
+          <option value="A">Giorno A</option>
+          <option value="B">Giorno B</option>
+        </select>
+      </span>
+
+      <span class="custom-dropdown">
+        <select id="mealSelector" onchange="switchMeal()">
+          <option value="1">Colazione</option>
+          <option value="2">Spuntino M</option>
+          <option value="3">Pranzo</option>
+          <option value="4">Spuntino P</option>
+          <option value="5">Cena</option>
+          <option value="6">Spuntino S</option>
+        </select>
+      </span>
+
+      <div class="row">
+        <div class="column">
+          <i class="fas fa-drumstick-bite" style=color:#D68C45></i>
+          <p id="protein_counter">30</p>
+        </div>
+        <div class="column">
+          <i class="fas fa-bread-slice" style=color:#F7B32B></i>
+          <p id="carb_counter">25</p>
+        </div>
+        <div class="column">
+          <i class="fas fa-bacon" style=color:#D62246></i>
+          <p id="fat_counter">5</p>
+        </div>
+      </div>
+
+      <br /><br />
+
+      <button onclick="generateMeal()" class="button7">Cosa potrei mangiare?</button>
+      
+    <!-- <div class="mealSuggest" id="mealSuggest">
+      <ul class="foodList">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+      </ul>
+    </div> -->
+
+    <!-- partial -->
+    <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.1/prototype.js"></script>
+    <script src="./script.js"></script>
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      data-auto-a11y="true"
+    ></script>
+  </body>
+</html>

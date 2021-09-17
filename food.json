@@ -1,0 +1,35 @@
+{
+  "P": {
+    "petto di pollo": { "q": 125, "u": "g" },
+    "petto di tacchino": { "q": 125, "u": "g" },
+    "vitello magro": { "q": 125, "u": "g" },
+    "tonno naturale": { "q": 125, "u": "g" },
+    "baccalá": { "q": 125, "u": "g" },
+    "philadelphia balance": { "q": 300, "u": "g" },
+    "fiocchi di latte": { "q": 300, "u": "g" },
+    "yogurt greco total 0%": { "q": 300, "u": "g" },
+    "linessa lidl": { "q": 300, "u": "g" },
+    "albume": {
+      "1": {
+          "albume": { "q": 300, "u": "g" }
+      },
+      "2": {
+        "albume": { "q": 220, "u": "g" },
+        "uova intere": { "q": 2, "u": "" }
+      },
+      "3": {
+        "albume": { "q": 180, "u": "g" },
+        "uova intere": { "q": 3, "u": "" }
+      }
+    },
+    "bresaola": { "q": 90, "u": "g" },
+    "prosciutto crudo": { "q": 90, "u": "g" },
+    "speck magro": { "q": 90, "u": "g" },
+    "proteine ≃ 90%": { "q": 35, "u": "g" },
+    "pesci magri": { "q": 190, "u": "g" },
+    "fes di tacchino": { "q": 190, "u": "g" },
+    "quest protein bar": { "q": "1/1.5", "u": "g" },
+    "salmone selvaggio (dal 25%)": { "q": 125, "u": "g" },
+    "amino map/essenziali o simili": { "q": "7/10", "u": "g" }
+  }
+}
