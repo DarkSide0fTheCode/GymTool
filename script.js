@@ -8,6 +8,8 @@ const colors = [
   "27ae60",
 ];
 
+const refMacro = { "P": 30, "C": 50, "G": 10 }
+
 const userDataRequest = async () => {
   const response = await fetch("./users.json");
   usersData = await response.json();
@@ -27,8 +29,6 @@ let selectedDay = "A";
 let userCode = "";
 let userId;
 let mealList = [];
-let stringSuggestion = [];
-
 
 document.addEventListener("DOMContentLoaded", function () {
   userDataRequest();
@@ -56,9 +56,9 @@ switchMeal = function () {
   document.getElementById("protein_counter").innerHTML =
     usersData[userId]["macroNutrients"][selectedDay][meal]["p"];
   document.getElementById("carb_counter").innerHTML =
-  usersData[userId]["macroNutrients"][selectedDay][meal]["c"];
+    usersData[userId]["macroNutrients"][selectedDay][meal]["c"];
   document.getElementById("fat_counter").innerHTML =
-  usersData[userId]["macroNutrients"][selectedDay][meal]["g"];
+    usersData[userId]["macroNutrients"][selectedDay][meal]["g"];
 };
 
 switchDay = function () {
@@ -68,16 +68,16 @@ switchDay = function () {
 
 const root = document.documentElement;
 
-getCustomPropertyValue = function(name) {
+getCustomPropertyValue = function (name) {
   const styles = getComputedStyle(root);
   return styles.getPropertyValue(name);
-}
+};
 
 const fieldset = document.querySelector(".fieldset");
 const fields = document.querySelectorAll(".field");
 const boxes = document.querySelectorAll(".box");
 
-handleInputField = function({ target }) {
+handleInputField = function ({ target }) {
   const value = target.value.slice(0, 1);
   target.value = value;
 
@@ -88,7 +88,7 @@ handleInputField = function({ target }) {
   if (focusToIndex < 0 || focusToIndex >= fields.length) return;
 
   fields[focusToIndex].focus();
-}
+};
 fields.forEach((field) => {
   field.addEventListener("input", handleInputField);
 });
@@ -114,26 +114,28 @@ submitBtn.addEventListener("click", (event) => {
     console.log("Exist!");
     loginAcceptedSound.play();
     fieldset.classList.add("animate-success");
-    setTimeout(function (){ loginAccepted(); }, 2300);
-
+    setTimeout(function () {
+      loginAccepted();
+    }, 2300);
   } else {
     console.log("Not Exist!");
     loginRejectedSound.play();
     if (fieldset.classList.contains("animate-success")) {
       fieldset.classList.remove("animate-success");
-  
-      const delay = parseInt(getCustomPropertyValue("--transition-duration-step-1"))
-  
+
+      const delay = parseInt(
+        getCustomPropertyValue("--transition-duration-step-1")
+      );
+
       setTimeout(() => {
         animateFailure();
-      }, delay)
-  
+      }, delay);
+
       return;
     }
-  
+
     animateFailure();
   }
-
 });
 
 // successBtn.addEventListener("click", (event) => {
@@ -144,7 +146,6 @@ submitBtn.addEventListener("click", (event) => {
 //   fieldset.classList.remove("animate-failure");
 //   fieldset.classList.remove("animate-success");
 // });
-
 
 const inputs = document.querySelectorAll(".settings-controls__input");
 
@@ -168,7 +169,7 @@ getDelay = function () {
   );
 
   return parseInt(firstStepDuration) + parseInt(secondStepDuration);
-}
+};
 
 inputs.forEach((node) => {
   node.addEventListener("input", setAnimationDuration);
@@ -178,15 +179,18 @@ loginAccepted = function () {
   document.getElementById("codeInput").style.display = "none";
   getWelcome();
   setUserName();
-  setTimeout(function (){ 
+  setTimeout(function () {
     document.getElementById("mainBody").style.display = "inherit";
-   }, 2800);
-}
+  }, 2800);
+};
 
 setUserName = function () {
   let customerUserName = document.getElementById("userName").innerHTML;
-  document.getElementById("userName").innerHTML = customerUserName.replace("Utente: Sconosciuto", "Ciao, "+ usersData[userId]["firstName"] + "!");
-}
+  document.getElementById("userName").innerHTML = customerUserName.replace(
+    "Utente: Sconosciuto",
+    "Ciao, " + usersData[userId]["firstName"] + "!"
+  );
+};
 
 resetInputFields = function () {
   document.getElementById("box1").value = "";
@@ -194,32 +198,69 @@ resetInputFields = function () {
   document.getElementById("box3").value = "";
   document.getElementById("box4").value = "";
   document.getElementById("box5").value = "";
-}
+};
 
-buildSuggestion = function(ar) {
+buildSuggestion = function (ar) {
+  let stringSuggestion = [];
   let tempString = "";
 
   ar.forEach((item, index) => {
-    console.log('Index: ' + index + ' Item: ' + item);
-    tempString = item[0] + " - " + item[1][0]["q"] + item[1][0]["u"];
-    console.log(tempString);
+    console.log("Index: " + index + " Item: " + item);
+    item[1][0]["q"] = handleQuantity(item[1][0]);
+    tempString = item[0] + " - " + item[1][0]["q"] + " " + item[1][0]["u"];
+    tempString = tempString.toUpperCase();
     stringSuggestion.push(tempString);
   });
 
   return stringSuggestion;
+};
+
+handleQuantity = function (arr) {
+  let currProteins = document.getElementById("protein_counter").innerHTML; // k
+  let currentCarbs = document.getElementById("carb_counter").innerHTML;
+  let currentFats = document.getElementById("carb_counter").innerHTML;
+  let q = arr["q"];
+  let t = arr["t"];
+
+  console.log("Hello " + q + " " + t);
+
+  if (currProteins < 30) {
+    q = (currProteins * q) / refMacro["P"];
+  }
+
+  if (currentCarbs < 50) {
+    q = (currentCarbs * q) / refMacro["C"];
+  }
+
+  if (currentFats < 10) {
+    q = (currentFats * q) / refMacro["G"];
+  }
+
+  console.log(q);
+  return q;
+
 }
 
 generateMeal = function () {
-  var arr = ['alpha', 'bravo', 'charlie', 'delta', 'echo'];
   let prevDiv = document.getElementById("mealSuggest");
-  if (prevDiv) { prevDiv.remove(); }
-  let mealSuggestDiv = document.createElement('div');
-  mealSuggestDiv.setAttribute('class', 'mealSuggest');
-  mealSuggestDiv.setAttribute('id', 'mealSuggest');
+  let mealDiv;
+  let mealSuggestDiv;
+  let ul;
+
+  if (prevDiv) {
+    console.log("ALWAYS DIV");
+    prevDiv.remove();
+  }
+
+  mealSuggestDiv = document.createElement("div");
+  mealSuggestDiv.setAttribute("class", "mealSuggest");
+  mealSuggestDiv.setAttribute("id", "mealSuggest");
   document.body.appendChild(mealSuggestDiv);
-  let mealDiv = document.getElementById("mealSuggest");
-  let ul = document.createElement('ul');
-  ul.setAttribute('class', 'foodList');
+  mealDiv = document.getElementById("mealSuggest");
+  ul = document.createElement("ul");
+  ul.setAttribute("class", "foodList");
+  ul.setAttribute("id", "fL");
+
   let randomizedProteins = randomizeMeal(foodData["P"]);
   let randomizedCarbs = randomizeMeal(foodData["C"]);
   let randomizedFat = randomizeMeal(foodData["G"]);
@@ -227,29 +268,30 @@ generateMeal = function () {
   // console.log(randomizedProteins);
   // console.log(randomizedCarbs);
   // console.log(randomizedFat);
-  
+
   mealList.push(randomizedProteins);
   mealList.push(randomizedCarbs);
   mealList.push(randomizedFat);
 
   console.log(mealList);
-
   let suggString = buildSuggestion(mealList);
-  
+
   for (i = 0; i <= suggString.length - 1; i++) {
-    console.log(suggString[i]);
-    var li = document.createElement('li');     // create li element.
-    li.innerHTML = suggString[i];      // assigning text to li using array value.
-    li.setAttribute('style', 'foodlist');    // remove the bullets.
-    
-    ul.appendChild(li);     // append li to ul.
+    // console.log(suggString[i]);
+    let li = document.createElement("li");
+    li.innerHTML = suggString[i];
+    li.setAttribute("style", "foodlist");
+    li.setAttribute("id", "foodlist");
+    ul.appendChild(li);
   }
-  
+
   mealDiv.appendChild(ul);
-}
+  mealList = [];
+  suggString = [];
+  li = [];
+};
 
 animateFailure = function () {
-
   fieldset.classList.add("animate-failure");
   const delay = getDelay();
 
@@ -257,24 +299,25 @@ animateFailure = function () {
     fieldset.classList.remove("animate-failure");
   }, delay);
   setTimeout(() => {
-    resetInputFields()
+    resetInputFields();
   }, delay);
-  
-}
+};
 
 getWelcome = function () {
-  var welcomeDiv = document.createElement('div');
+  var welcomeDiv = document.createElement("div");
   welcomeDiv.textContent = "Benvenuto " + usersData[userId]["firstName"];
-  welcomeDiv.setAttribute('class', 'text');
-  welcomeDiv.setAttribute('id', 'welcomeText');
+  welcomeDiv.setAttribute("class", "text");
+  welcomeDiv.setAttribute("id", "welcomeText");
   document.body.appendChild(welcomeDiv);
   welcomeDiv = document.getElementById("welcomeText");
-  setTimeout(function (){ welcomeDiv.remove(); }, 2500);
-}
+  setTimeout(function () {
+    welcomeDiv.remove();
+  }, 2500);
+};
 
-randomizeMeal = function(obj) {
+randomizeMeal = function (obj) {
   let keys = Object.keys(obj);
-  let randomKey = keys.length * Math.random() << 0;
+  let randomKey = (keys.length * Math.random()) << 0;
   let foodName = keys[randomKey];
   let tempNutrictionFact = obj[keys[randomKey]];
   let nutritionFacts = [];
@@ -282,21 +325,19 @@ randomizeMeal = function(obj) {
   if (foodName == "albume") {
     foodName = "";
     keys = Object.keys(tempNutrictionFact);
-    randomKey = keys.length * Math.random() << 0;
-    tempNutrictionFact =  tempNutrictionFact[keys[randomKey]];
-    
-    Object.keys(tempNutrictionFact).forEach(key => {
+    randomKey = (keys.length * Math.random()) << 0;
+    tempNutrictionFact = tempNutrictionFact[keys[randomKey]];
+
+    Object.keys(tempNutrictionFact).forEach((key) => {
       if (!foodName) {
         foodName = key;
       } else {
-        foodName = foodName + " + " + key; 
+        foodName = foodName + " + " + key;
       }
       nutritionFacts.push(tempNutrictionFact[key]);
     });
-
   } else {
     nutritionFacts.push(tempNutrictionFact);
   }
   return [foodName, nutritionFacts];
-}
-
+};

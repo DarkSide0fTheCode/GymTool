@@ -1,66 +1,66 @@
 {
   "P": {
-    "petto di pollo": { "q": 125, "u": "g" },
-    "petto di tacchino": { "q": 125, "u": "g" },
-    "vitello magro": { "q": 125, "u": "g" },
-    "tonno naturale": { "q": 125, "u": "g" },
-    "baccalá": { "q": 125, "u": "g" },
-    "philadelphia balance": { "q": 300, "u": "g" },
-    "fiocchi di latte": { "q": 300, "u": "g" },
-    "yogurt greco total 0%": { "q": 300, "u": "g" },
-    "linessa lidl": { "q": 300, "u": "g" },
+    "petto di pollo": { "q": 125, "u": "g", "t": "P" },
+    "petto di tacchino": { "q": 125, "u": "g", "t": "P" },
+    "vitello magro": { "q": 125, "u": "g", "t": "P" },
+    "tonno naturale": { "q": 125, "u": "g", "t": "P" },
+    "baccalá": { "q": 125, "u": "g", "t": "P" },
+    "philadelphia balance": { "q": 300, "u": "g", "t": "P" },
+    "fiocchi di latte": { "q": 300, "u": "g", "t": "P" },
+    "yogurt greco total 0%": { "q": 300, "u": "g", "t": "P" },
+    "linessa lidl": { "q": 300, "u": "g", "t": "P" },
     "albume": {
       "1": {
-          "albume": { "q": 300, "u": "g" }
+          "albume": { "q": 300, "u": "g", "t": "P" }
       },
       "2": {
-        "albume": { "q": 220, "u": "g" },
-        "uova intere": { "q": 2, "u": "" }
+        "albume": { "q": 220, "u": "g", "t": "P" },
+        "uova intere": { "q": 2, "u": "", "t": "P" }
       },
       "3": {
-        "albume": { "q": 180, "u": "g" },
-        "uova intere": { "q": 3, "u": "" }
+        "albume": { "q": 180, "u": "g", "t": "P" },
+        "uova intere": { "q": 3, "u": "", "t": "P" }
       }
     },
-    "bresaola": { "q": 90, "u": "g" },
-    "prosciutto crudo": { "q": 90, "u": "g" },
-    "speck magro": { "q": 90, "u": "g" },
-    "proteine ≃ 90%": { "q": 35, "u": "g" },
-    "pesci magri": { "q": 190, "u": "g" },
-    "fes di tacchino": { "q": 190, "u": "g" },
-    "quest protein bar": { "q": "1/1.5", "u": "g" },
-    "salmone selvaggio (dal 25%)": { "q": 125, "u": "g" },
-    "amino map/essenziali o simili": { "q": "7/10", "u": "g" }
+    "bresaola": { "q": 90, "u": "g", "t": "P" },
+    "prosciutto crudo": { "q": 90, "u": "g", "t": "P" },
+    "speck magro": { "q": 90, "u": "g", "t": "P" },
+    "proteine ≃ 90%": { "q": 35, "u": "g", "t": "P" },
+    "pesci magri": { "q": 190, "u": "g", "t": "P" },
+    "fes di tacchino": { "q": 190, "u": "g", "t": "P" },
+    "quest protein bar": { "q": "1", "u": "g", "t": "P" },
+    "salmone selvaggio (dal 25%)": { "q": 125, "u": "g", "t": "P" },
+    "amino map/essenziali o simili": { "q": "10", "u": "g", "t": "P" }
   },
   "C": {
-    "riso" : { "q": "60", "u": "g" },
-    "pasta" : { "q": "60", "u": "g" },
-    "gallette" : { "q": "60", "u": "g" },
-    "polenta secca" : { "q": "60", "u": "g" },
-    "crackers magretti" : { "q": "60", "u": "g" },
-    "fette biscottate (0 zuccheri)" : { "q": "60", "u": "g" },
-    "cornflakes mais (0 zuccheri)" : { "q": "60", "u": "g" },
-    "pop corn (no olio)" : { "q": "60", "u": "g" },
-    "fiocchi d'avena" : { "q": "90", "u": "g" },
-    "pane" : { "q": "90", "u": "g" },
-    "fette segale" : { "q": "90", "u": "g" },
-    "fette wasa" : { "q": "90", "u": "g" },
-    "focaccia sale e rosmarino" : { "q": "90", "u": "g" },
-    "pasta all'uovo" : { "q": "90", "u": "g" },
-    "patate dolci" : { "q": "200", "u": "g" },
-    "patate" : { "q": "250", "u": "g" },
-    "gnocchi patate" : { "q": "140", "u": "g" },
-    "pane duro 40% carboidrati" : { "q": "140", "u": "g" },
-    "frutta" : { "q": "500", "u": "g" }
+    "riso" : { "q": "60", "u": "g", "t": "C" },
+    "pasta" : { "q": "60", "u": "g", "t": "C" },
+    "gallette" : { "q": "60", "u": "g", "t": "C" },
+    "polenta secca" : { "q": "60", "u": "g", "t": "C" },
+    "crackers magretti" : { "q": "60", "u": "g", "t": "C" },
+    "fette biscottate (0 zuccheri)" : { "q": "60", "u": "g", "t": "C" },
+    "cornflakes mais (0 zuccheri)" : { "q": "60", "u": "g", "t": "C" },
+    "pop corn (no olio)" : { "q": "60", "u": "g", "t": "C" },
+    "fiocchi d'avena" : { "q": "90", "u": "g", "t": "C" },
+    "pane" : { "q": "90", "u": "g", "t": "C" },
+    "fette segale" : { "q": "90", "u": "g", "t": "C" },
+    "fette wasa" : { "q": "90", "u": "g", "t": "C" },
+    "focaccia sale e rosmarino" : { "q": "90", "u": "g", "t": "C" },
+    "pasta all'uovo" : { "q": "90", "u": "g", "t": "C" },
+    "patate dolci" : { "q": "200", "u": "g", "t": "C" },
+    "patate" : { "q": "250", "u": "g", "t": "C" },
+    "gnocchi patate" : { "q": "140", "u": "g", "t": "C" },
+    "pane duro 40% carboidrati" : { "q": "140", "u": "g", "t": "C" },
+    "frutta" : { "q": "500", "u": "g", "t": "C" }
   },
   "G": {
-    "olio d'oliva/mais/lino": { "q": "10", "u": "g" },
-    "nocciole" : { "q": "20", "u": "g" },
-    "pinoli" : { "q": "20", "u": "g" },
-    "mandorle" : { "q": "20", "u": "g" },
-    "noci brasiliane" : { "q": "20", "u": "g" },
-    "anacardi" : { "q": "20", "u": "g" },
-    "noci macadamia" : { "q": "20", "u": "g" },
-    "avocado" : { "q": "80", "u": "g" }
+    "olio d'oliva/mais/lino": { "q": "10", "u": "g", "t": "G" },
+    "nocciole" : { "q": "20", "u": "g", "t": "G" },
+    "pinoli" : { "q": "20", "u": "g", "t": "G" },
+    "mandorle" : { "q": "20", "u": "g", "t": "G" },
+    "noci brasiliane" : { "q": "20", "u": "g", "t": "G" },
+    "anacardi" : { "q": "20", "u": "g", "t": "G" },
+    "noci macadamia" : { "q": "20", "u": "g", "t": "G" },
+    "avocado" : { "q": "80", "u": "g", "t": "G" }
   }
 }

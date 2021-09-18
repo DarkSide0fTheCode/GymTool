@@ -44,6 +44,7 @@ ul.foodList {
   list-style-type: circle;
   display: inline-block;
   text-align: left;
+  margin-left: 4%;
 }
 
 .big {
@@ -83,7 +84,11 @@ ul.foodList {
   border-radius: 3px;
   text-indent: 0.01px;
   text-overflow: '';
-  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+  /* hide default arrow */
+  -webkit-appearance: button; 
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* hide default arrow */
 }
 
 .custom-dropdown::before,
@@ -157,13 +162,13 @@ ul.foodList {
   font-size: inherit;
   color:#FFFFFF;
   background-color:#00AFF0;
-  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  /* box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12); */
   text-align:center;
   position:relative;
 }
 
 .button7:active {
- box-shadow:inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+ /* box-shadow:inset 0 0.6em 2em -0.3em rgba(0,0,0,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12); */
 }
 
 @media all and (max-width:30em) {
