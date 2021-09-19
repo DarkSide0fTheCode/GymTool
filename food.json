@@ -27,8 +27,8 @@
     "speck magro": { "q": 90, "u": "g", "t": "P" },
     "proteine ≃ 90%": { "q": 35, "u": "g", "t": "P" },
     "pesci magri": { "q": 190, "u": "g", "t": "P" },
-    "fes di tacchino": { "q": 190, "u": "g", "t": "P" },
-    "quest protein bar": { "q": "1", "u": "g", "t": "P" },
+    "fesa di tacchino": { "q": 190, "u": "g", "t": "P" },
+    "quest protein bar": { "q": "1.2", "u": "", "t": "P" },
     "salmone selvaggio (dal 25%)": { "q": 125, "u": "g", "t": "P" },
     "amino map/essenziali o simili": { "q": "10", "u": "g", "t": "P" }
   },

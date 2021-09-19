@@ -206,7 +206,8 @@ buildSuggestion = function (ar) {
 
   ar.forEach((item, index) => {
     console.log("Index: " + index + " Item: " + item);
-    item[1][0]["q"] = handleQuantity(item[1][0]);
+    console.log("Quantity before handle: " + item[1][0]["q"])
+    item[1][0]["q"] = handleQuantity(item);
     tempString = item[0] + " - " + item[1][0]["q"] + " " + item[1][0]["u"];
     tempString = tempString.toUpperCase();
     stringSuggestion.push(tempString);
@@ -218,27 +219,53 @@ buildSuggestion = function (ar) {
 handleQuantity = function (arr) {
   let currProteins = document.getElementById("protein_counter").innerHTML; // k
   let currentCarbs = document.getElementById("carb_counter").innerHTML;
-  let currentFats = document.getElementById("carb_counter").innerHTML;
-  let q = arr["q"];
-  let t = arr["t"];
+  let currentFats = document.getElementById("fat_counter").innerHTML;
+  let foodName = arr[0];
+  let foodQuantity = arr[1][0]["q"];
+  let foodType = arr[1][0]["t"];
 
-  console.log("Hello " + q + " " + t);
+  console.log("HTML: " + currProteins + " Quantity: " + foodQuantity + " Refmacro: " + refMacro["P"] + " Type: " + foodType)
 
-  if (currProteins < 30) {
-    q = (currProteins * q) / refMacro["P"];
+  console.log(foodData["P"][foodName]);
+
+  if (foodData["P"][foodName] !== undefined) {
+    if (currProteins < 30) {
+      foodQuantity = null;
+      foodQuantity = (currProteins * foodQuantity) / refMacro["P"];
+      console.log("RETURNED PROTEIN: " + foodQuantity);
+    }
+    return foodQuantity;
+  } else if (foodData["C"][foodName] !== undefined) {
+    if (currentCarbs < 50) {
+      foodQuantity = null;
+      foodQuantity = (currentCarbs * foodQuantity) / refMacro["C"];
+      console.log("RETURNED CARBS: " + foodQuantity);
+    }
+    return foodQuantity;
+  } else if (foodData["G"][foodName] !== undefined) {
+    if (currentFats < 10) {
+      foodQuantity = null;
+      foodQuantity = (currentFats * foodQuantity) / refMacro["G"];
+      console.log("RETURNED FAT: " + foodQuantity);
+    }
+    return foodQuantity;
   }
-
-  if (currentCarbs < 50) {
-    q = (currentCarbs * q) / refMacro["C"];
-  }
-
-  if (currentFats < 10) {
-    q = (currentFats * q) / refMacro["G"];
-  }
-
-  console.log(q);
-  return q;
-
+  
+  // if (foodData["C"][foodName]) {
+  //   if (currentCarbs < 50) {
+  //     foodQuantity = (currentCarbs * foodQuantity) / refMacro["C"];
+  //     console.log("RETURNED CARBS: " + foodQuantity);
+  //   }
+  //   return foodQuantity;
+  // }
+  
+  // if (foodData["G"][foodName]) {
+  //   if (currentFats < 10) {
+  //     foodQuantity = (currentFats * foodQuantity) / refMacro["G"];
+  //     console.log("RETURNED FAT: " + foodQuantity);
+  //   }
+  //   return foodQuantity;
+  // }
 }
 
 generateMeal = function () {
