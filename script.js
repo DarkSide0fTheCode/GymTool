@@ -178,18 +178,27 @@ inputs.forEach((node) => {
 loginAccepted = function () {
   document.getElementById("codeInput").style.display = "none";
   getWelcome();
-  setUserName();
+  handleUser();
   setTimeout(function () {
     document.getElementById("mainBody").style.display = "inherit";
   }, 2800);
 };
 
-setUserName = function () {
+handleUser = function () {
   let customerUserName = document.getElementById("userName").innerHTML;
   document.getElementById("userName").innerHTML = customerUserName.replace(
     "Utente: Sconosciuto",
     "Ciao, " + usersData[userId]["firstName"] + "!"
   );
+  if (usersData[userId]["owner"]) {
+    let ownerButton = document.createElement("button");
+    ownerButton.setAttribute("class", "btn submit-btn topRight");
+    ownerButton.setAttribute("id", "ownerButton");
+    ownerButton.setAttribute("type", "button");
+    ownerButton.innerHTML = "Aggiungi Utente";
+    //ownerButton.setAttribute("onclick","alert('blah');");
+    document.body.appendChild(ownerButton);
+    }
 };
 
 resetInputFields = function () {
@@ -351,3 +360,4 @@ randomizeMeal = function (obj) {
   }
   return [foodName, nutritionFacts];
 };
+
