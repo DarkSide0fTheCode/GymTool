@@ -158,7 +158,7 @@ function setAnimationDuration({ target }) {
   const propertyValue = Number.isNaN(safeValue) ? null : safeValue + "ms";
 
   root.style.setProperty(`--transition-duration-step-${step}`, propertyValue);
-}
+};
 
 getDelay = function () {
   const firstStepDuration = getCustomPropertyValue(
@@ -181,6 +181,7 @@ loginAccepted = function () {
   handleUser();
   setTimeout(function () {
     document.getElementById("mainBody").style.display = "inherit";
+    adaptLogo()
   }, 2800);
 };
 
@@ -192,11 +193,11 @@ handleUser = function () {
   );
   if (usersData[userId]["owner"]) {
     let ownerButton = document.createElement("button");
-    ownerButton.setAttribute("class", "btn submit-btn topRight");
+    ownerButton.setAttribute("class", "button7 topRight");
     ownerButton.setAttribute("id", "ownerButton");
     ownerButton.setAttribute("type", "button");
     ownerButton.innerHTML = "Aggiungi Utente";
-    //ownerButton.setAttribute("onclick","alert('blah');");
+    ownerButton.addEventListener("click", addUser);
     document.body.appendChild(ownerButton);
     }
 };
@@ -258,7 +259,7 @@ handleQuantity = function (arr) {
     }
     return foodQuantity;
   }
-}
+};
 
 generateMeal = function () {
   let prevDiv = document.getElementById("mealSuggest");
@@ -334,6 +335,11 @@ getWelcome = function () {
   }, 2500);
 };
 
+addUser = function () {
+  console.log("Add user!")
+  alert("Coming Soon!")
+}; 
+
 randomizeMeal = function (obj) {
   let keys = Object.keys(obj);
   let randomKey = (keys.length * Math.random()) << 0;
@@ -361,3 +367,28 @@ randomizeMeal = function (obj) {
   return [foodName, nutritionFacts];
 };
 
+adaptLogo = function () {
+  let logoEl = document.querySelectorAll(".logo");
+  logoEl.forEach((item, index, array) => {
+    console.log(item["id"]);
+    let element = document.getElementById(item["id"]);
+    
+    switch (item["id"]) {
+      case 'logo-img':
+        element.classList.add("logo-logged");
+        break;
+      case 'userName':
+        element.classList.remove("userText");
+        element.classList.add("userText-logged");
+        element.classList.add("userText");
+
+        break;
+      default:
+        console.log(`No event has been found for ${element}`);
+    }
+    
+    console.log(element);
+
+  });
+
+}

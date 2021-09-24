@@ -19,6 +19,10 @@ body {
 .bodyH1 {
   font-family: CenturyStd-Ultra;
   font-size: 2em;
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .mealSuggest {
@@ -34,10 +38,29 @@ body {
 }
 
 .logo {
-  float: left;
-  width: 100px;
-  height: 100px;
-  margin-left: 2px;
+  position: absolute;
+  left: 40px;
+  top: 16px;
+}
+
+.logo-logged {
+  left: 80px;
+}
+
+.userText {
+  left: 16px;
+  top: 118px;
+}
+
+.userText-logged {
+  left: 86px;
+}
+
+.color-picker {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 10%;
 }
 
 ul.foodList {
@@ -179,8 +202,11 @@ ul.foodList {
 }
 
 .codeInput {
-  margin-top: 40%;
   display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 :root {
@@ -537,18 +563,18 @@ h2 {
   z-index: 999;   
 }
 
-.bottomRight {
+/* .bottomRight {
   position: absolute;
   bottom: 8px;
   right: 16px;
   font-size: 18px;
-}
+} */
 
 ul.socialList {
   display: -moz-inline-grid;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 92%;
+  left: 97%;
   transform: translate(-50%, -50%);
 }
 
@@ -614,4 +640,222 @@ ul.socialList li:nth-child(3) a:before {
 
 ul.socialList li:nth-child(4) a:before {
   background: #dd4b39;
+}
+
+
+* { box-sizing: border-box; }
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+
+header#mainHeader {
+  width: 60px;
+  height: 100%;
+  left: 0;
+  -webkit-transition: left 0.5s ease-in-out 0.2s;
+  transition: left 0.5s ease-in-out 0.2s;
+  position: fixed;
+  display: inline-block;
+  background-color: #3a4151;
+  z-index: 1000;
+}
+header#mainHeader nav {
+  height: 100%;
+  width: 60px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  /*
+  	position:absolute;
+  	left:0;
+  */
+  /* L'element */
+}
+header#mainHeader nav .top-header {
+  background-color: #3a4151;
+  position: relative;
+}
+header#mainHeader nav:after {
+  content: ' ';
+  background-color: #3a4151;
+  width: 60px;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+}
+header#mainHeader nav:before {
+  content: ' ';
+  height: 100%;
+  width: 0px;
+  background-color: #424a5c;
+  position: absolute;
+  left: 60px;
+  -webkit-transition: width 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: width 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+header#mainHeader nav .navBurger {
+  cursor: pointer;
+  width: 100%;
+  height: 45px;
+}
+header#mainHeader nav .navBurger .burger {
+  margin-left: 18px;
+  margin-top: 30px;
+  cursor: pointer;
+  /* pour créer le hamburger, on décale les deux
+   * barres de 8px
+   */
+}
+header#mainHeader nav .navBurger .burger, header#mainHeader nav .navBurger .burger::before, header#mainHeader nav .navBurger .burger::after {
+  border-radius: 2px;
+  position: absolute;
+  z-index: 100;
+  width: 24px;
+  height: 4px;
+  background: white;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+header#mainHeader nav .navBurger .burger::before, header#mainHeader nav .navBurger .burger::after {
+  content: "";
+  display: block;
+}
+header#mainHeader nav .navBurger .burger::before {
+  margin-top: -8px;
+}
+header#mainHeader nav .navBurger .burger::after {
+  margin-top: 8px;
+}
+header#mainHeader nav ul {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: calc(50vh - 160px);
+}
+header#mainHeader nav ul li {
+  font-size: 14px;
+  width: 60px;
+  height: 40px;
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+header#mainHeader nav ul li a {
+  display: block;
+  width: 150px;
+  color: white;
+  position: relative;
+  z-index: 0;
+  opacity: 0;
+  left: -80px;
+  text-transform: uppercase;
+  -webkit-transition: left 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045), opacity 0.15s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: left 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045), opacity 0.15s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  color: #fff;
+  text-decoration: none;
+}
+header#mainHeader nav ul li:before {
+  z-index: 10;
+  content: ' ';
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  position: absolute;
+  left: 26px;
+  top: 3px;
+  border-radius: 50%;
+  border: 2px solid white;
+  -webkit-transform: scale(1) translate3d(0, 0, 0);
+          transform: scale(1) translate3d(0, 0, 0);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+header#mainHeader nav ul li a:hover, header#mainHeader nav ul li a:active, header#mainHeader nav ul li a:visited, header#mainHeader nav ul li a:focus {
+  background-color: transparent !important;
+  color: white;
+}
+header#mainHeader nav ul li:hover:before {
+  background-color: white;
+}
+header#mainHeader nav ul li.active:before, header#mainHeader nav ul li:hover:before {
+  -webkit-transform: scale(1.5) translate3d(0, 0, 0);
+          transform: scale(1.5) translate3d(0, 0, 0);
+  background-color: white;
+}
+header#mainHeader nav:hover:before {
+  width: 160px;
+  -webkit-transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+header#mainHeader nav:hover .burger {
+  /* 		background:transparent; */
+  -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
+          transform: rotate(45deg) translate3d(0, 0, 0);
+}
+header#mainHeader nav:hover .burger::before {
+  margin-top: 0px;
+  -webkit-transform: rotate(-90deg) translate3d(0, 0, 0);
+          transform: rotate(-90deg) translate3d(0, 0, 0);
+}
+header#mainHeader nav:hover .burger::after {
+  margin-top: 0px;
+  -webkit-transform: rotate(0deg) translate3d(0, 0, 0);
+          transform: rotate(0deg) translate3d(0, 0, 0);
+}
+header#mainHeader nav:hover li a {
+  left: 70px;
+  opacity: 1;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  -webkit-transition-property: left, opacity;
+  transition-property: left, opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+header#mainHeader nav:hover li:nth-child(1) a {
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+header#mainHeader nav:hover li:nth-child(2) a {
+  -webkit-transition-delay: 0.34s;
+          transition-delay: 0.34s;
+}
+header#mainHeader nav:hover li:nth-child(3) a {
+  -webkit-transition-delay: 0.38s;
+          transition-delay: 0.38s;
+}
+header#mainHeader nav:hover li:nth-child(4) a {
+  -webkit-transition-delay: 0.42s;
+          transition-delay: 0.42s;
+}
+header#mainHeader nav:hover li:nth-child(5) a {
+  -webkit-transition-delay: 0.46s;
+          transition-delay: 0.46s;
+}
+header#mainHeader nav:hover li:nth-child(6) a {
+  -webkit-transition-delay: 0.50s;
+          transition-delay: 0.50s;
+}
+header#mainHeader nav:hover li:nth-child(7) a {
+  -webkit-transition-delay: 0.54s;
+          transition-delay: 0.54s;
+}
+header#mainHeader nav:hover li:nth-child(8) a {
+  -webkit-transition-delay: 0.58s;
+          transition-delay: 0.58s;
 }
